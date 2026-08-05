@@ -16,24 +16,24 @@ TEMPLATE = {
         "timeout": 10,
         "max_concurrent_requests": 1,
         "recheck_interval": 15,
-        "max_retries": 5,
-        "retry_delay": 5,
+        "max_retries": 3,
+        "retry_delay": 10,
     },
     "targeted_website": {
         "endpoint": "https://pk-gr-services.gvcworld.eu/api/v1/periodslot/slots",
-        "auth_token": "TOKEN",
+        "auth_token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjb2xkc2hlbGwiLCJyb2xlIjoiUk9MRV9BUFBMSUNBTlQiLCJpc3MiOiJndmN3LWFwcCIsImV4cCI6MTc4Njc3NDg2NSwiaWF0IjoxNzg0OTc0ODY1LCJqdGkiOiJlNmU1OWEwNy1mZWI0LTQ4NTctYmZmYi1iNTRkZjcyNzNlOTIifQ.A6jCq6f3zaIXdFzD4Yrcc5j8-ayIrz1lXMlnhc3IMtg",
     },
     "proxy": {
-        "http": "PROXY ADDRESS",
-        "https": "PROXY ADDRESS",
+        "http": "http://fmuarmnh-PK-rotate:eydwqjv99lmf@p.webshare.io:80",
+        "https": "http://fmuarmnh-PK-rotate:eydwqjv99lmf@p.webshare.io:80",
     },
     "telegram": {
-        "bot_token": "BOT TOKEN",
+        "bot_token": "8420930196:AAF_9DsVI-algZ6qjWHMM6i5ZvGIA58FMwQ",
         "dev_chat_id": "5766884382",
-        "users_chat_ids": [],
+        "users_chat_ids": ["8966549582"],
     },
-    "dates": ["05/09/2026"],
-    "date_range": {"enabled": False, "start": "01/09/2026", "end": "30/09/2026"},
+    "dates": [],
+    "date_range": {"enabled": True, "start": "01/09/2026", "end": "30/09/2026"},
 }
 
 
