@@ -1,0 +1,17 @@
+{
+    "accept": "*/*",
+    "accept-encoding": "gzip, deflate, br, zstd",
+    "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
+    "content-type": "application/json; charset=UTF-8",
+    "origin": "https://pk-gr-services.gvcworld.eu",
+    "priority": "u=1, i",
+    "referer": "https://pk-gr-services.gvcworld.eu/appointments/add",
+    "sec-ch-ua": "\"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"140\", \"Google Chrome\";v=\"140\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+    "x-requested-with": "XMLHttpRequest"
+}

@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Monitor Dashboard</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}"
+        />
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Monitor Dashboard</h1>
+
+            <div class="status-card">
+                <h3>
+                    Status:
+                    <span id="status-badge">UNKNOWN</span>
+                </h3>
+            </div>
+
+            <div class="btn-row">
+                <button
+                    type="button"
+                    id="start-btn"
+                    class="btn start"
+                    onclick="startBot()"
+                >
+                    Start Bot
+                </button>
+
+                <button
+                    type="button"
+                    id="stop-btn"
+                    class="btn stop"
+                    onclick="stopBot()"
+                >
+                    Stop Bot
+                </button>
+            </div>
+
+            <hr />
+
+            <form action="/save" method="post">
+                <section class="card">
+                    <h2>Requests</h2>
+                    <div class="grid">
+                        <div class="field">
+                            <label>Timeout</label>
+                            <input
+                                type="number"
+                                name="timeout"
+                                value="{{ config.requests.timeout }}"
+                            />
+                        </div>
+                        <div class="field">
+                            <label>Max Concurrent Requests</label>
+                            <input
+                                type="number"
+                                name="max_concurrent_requests"
+                                value="{{ config.requests.max_concurrent_requests }}"
+                            />
+                        </div>
+                        <div class="field">
+                            <label>Recheck Interval</label>
+                            <input
+                                type="number"
+                                name="recheck_interval"
+                                value="{{ config.requests.recheck_interval }}"
+                            />
+                        </div>
+                        <div class="field">
+                            <label>Max Retries</label>
+                            <input
+                                type="number"
+                                name="max_retries"
+                                value="{{ config.requests.max_retries }}"
+                            />
+                        </div>
+                        <div class="field">
+                            <label>Retry Delay</label>
+                            <input
+                                type="number"
+                                name="retry_delay"
+                                value="{{ config.requests.retry_delay }}"
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2>Target Website</h2>
+                    <div class="grid">
+                        <div class="field">
+                            <label>Appointment Slot Endpoint</label>
+                            <input
+                                type="text"
+                                name="appointment_slot_endpoint"
+                                value="{{ config.targeted_website.endpoint }}"
+                            />
+                        </div>
+                        <div class="field">
+                            <label>Auth Token</label>
+                            <input
+                                type="text"
+                                name="auth_token"
+                                value="{{ config.targeted_website.auth_token }}"
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2>Proxy</h2>
+                    <div class="grid">
+                        <div class="field">
+                            <label>HTTP Proxy</label>
+                            <input
+                                type="text"
+                                name="proxy_http"
+                                value="{{ config.proxy.http }}"
+                            />
+                        </div>
+                        <div class="field">
+                            <label>HTTPS Proxy</label>
+                            <input
+                                type="text"
+                                name="proxy_https"
+                                value="{{ config.proxy.https }}"
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2>Telegram</h2>
+                    <div class="grid">
+                        <div class="field">
+                            <label>Bot Token</label>
+                            <input
+                                type="text"
+                                name="bot_token"
+                                value="{{ config.telegram.bot_token }}"
+                            />
+                        </div>
+                        <div class="field">
+                            <label>Dev Chat ID</label>
+                            <input
+                                type="text"
+                                name="dev_chat_id"
+                                value="{{ config.telegram.dev_chat_id }}"
+                            />
+                        </div>
+                        <div class="field full">
+                            <label>Users Chat IDs (comma separated)</label>
+                            <input
+                                type="text"
+                                name="users_chat_ids"
+                                value="{{ config.telegram.users_chat_ids | join(',') }}"
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2>Dates</h2>
+                    <div class="field full">
+                        <label>Dates (comma separated)</label>
+                        <input
+                            type="text"
+                            name="dates"
+                            value="{{ config.dates | join(',') }}"
+                        />
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2>Date Range</h2>
+                    <label class="checkbox-row">
+                        <input
+                            type="checkbox"
+                            name="date_range_enabled"
+                            {%
+                            if
+                            config.date_range.enabled
+                            %}checked{%
+                            endif
+                            %}
+                        />
+                        Enable Date Range
+                    </label>
+
+                    <div class="grid">
+                        <div class="field">
+                            <label>Start Date</label>
+                            <input
+                                type="text"
+                                name="date_range_start"
+                                value="{{ config.date_range.start }}"
+                            />
+                        </div>
+                        <div class="field">
+                            <label>End Date</label>
+                            <input
+                                type="text"
+                                name="date_range_end"
+                                value="{{ config.date_range.end }}"
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                <button type="submit" class="btn save">Save Settings</button>
+            </form>
+        </div>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>
